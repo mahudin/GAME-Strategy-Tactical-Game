@@ -153,6 +153,11 @@ public class Game implements Runnable {
 		return mouseManager;
 	}
 	
+	public void setGameState(State state){
+		this.gameState=state;
+		State.setState(state);
+	}
+	
 	public State getGameState(){
 		return gameState;
 	}

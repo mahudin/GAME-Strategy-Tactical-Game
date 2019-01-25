@@ -1,9 +1,11 @@
 package dev.main;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
 
+import dev.main.entity.Entity;
 import dev.main.entity.EntityManager;
 import dev.main.entity.Orc;
 import dev.main.entity.Player;
@@ -13,19 +15,19 @@ import dev.main.entity.cities.Metropolis;
 import dev.main.entity.cities.Place;
 import dev.main.entity.cities.Village;
 import dev.main.gfx.Assets;
+import dev.main.states.BattleState;
 import dev.main.states.State;
 import dev.main.tiles.Tile;
 import dev.main.ui.ClickListener;
 import dev.main.ui.UI_imagebutton;
 import dev.main.ui.UI_manager;
+import dev.army.Army;
 import dev.army.Rycerz;
 import dev.army.£ucznik;
 import dev.hud.Hud;
 import dev.inventory.ItemManager;
 
 public class World {
-	
-	
 	
 	private int width,height;
 	private int[][] tiles;
@@ -40,28 +42,16 @@ public class World {
 		loadWorld(path);
 		this.handler=handler;
 		
-		entityManager=new EntityManager(handler,new Player(handler,260,360));
-		entityManager.getPlayer().setX(spawnX+130);
-		entityManager.getPlayer().setY(spawnY+160);
 		
-		/*UI_manager uimanager=handler.getMouseManager().getUI_Manager();
-		uimanager.addObject(new UI_imagebutton(200, 200, 128, 64, Assets.btn_start, new ClickListener() {
-			@Override
-			public void onClick() {
-				//handler.getMouseManager().setUIManager(null);
-				State.setState(handler.getGame().getGameState());
-			}
-		}));*/
-		
-		entityManager.addEntity(new Tree(handler,100,250));
-		entityManager.addEntity(new Tree(handler,180,250));
-		entityManager.addEntity(new Orc(handler,450,350));
-		
-		entityManager.addEntity(new Location(handler,650,350,new Village(),"Smithtown"));
-	
-		itemManager=new ItemManager(handler);
-		hud=new Hud(handler,Assets.main_hud,entityManager.getPlayer());
 	}
+	
+
+	
+	
+	public void setHud(Hud hud) {
+		this.hud=hud;
+	}
+	
 	public EntityManager getEntityManager() {
 		return entityManager;
 	}
@@ -113,17 +103,6 @@ public class World {
 		if(t==null) return Tile.grassTile;
 		return t;
 	}
-	/*private void loadWorld(String path){
-		width=5;
-		height=5;
-		tiles=new int[width][height];
-		
-		for(int x=0;x<width;x++){
-			for(int y=0;y<height;y++){
-				tiles[x][y]=0;
-			}
-		}
-	}*/
 	
 	public int getWidth() {
 		return width;

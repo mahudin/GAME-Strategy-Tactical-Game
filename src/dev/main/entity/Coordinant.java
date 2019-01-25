@@ -9,7 +9,7 @@ import dev.main.tiles.Tile;
 public class Coordinant extends StaticEntity {
 	private boolean is_active=false;
 	public Coordinant(Handler handler,float x,float y){
-		super(handler,x,y,1,1);
+		super(handler,x,y,1,1,0);
 		
 		/*bounds.x=width/2;
 		bounds.y=(int) (height/1.2f);

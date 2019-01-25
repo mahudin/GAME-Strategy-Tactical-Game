@@ -3,6 +3,7 @@ package dev.main.entity;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+import dev.interfejsy.aktywnosci.Aktywnosci;
 import dev.main.Handler;
 
 public abstract class Entity {
@@ -14,13 +15,19 @@ public abstract class Entity {
 	protected Rectangle bounds;
 	protected boolean active=true;
 	protected int health;
+	protected int activity;
 	
-	public Entity(Handler handler, float x, float y, int width, int height){
+	public enum aktywnoœci {
+		STATYCZNY, BIERNY, PRZYJACIELSKI,WROGI;
+	}
+	
+	public Entity(Handler handler, float x, float y, int width, int height,int activity){
 		this.handler = handler;
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		this.activity=activity;
 		health=DEFAULT_HEALTH;
 		bounds=new Rectangle(0,0,width,height);
 	}
@@ -33,6 +40,10 @@ public abstract class Entity {
 	
 	public boolean isActive(){
 		return active;
+	}
+	
+	public int getActivity(){
+		return this.activity;
 	}
 	
 	public void hurt(int amt){

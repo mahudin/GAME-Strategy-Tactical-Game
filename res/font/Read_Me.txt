@@ -36,9 +36,4 @@ useful in your work :)
 
 ---------------------------------------------
 
-respect to: barme >>> www.czcionki.com <<<
-
-                             Gulash
-gulash@tgi.com.pl
-
 ><><><><><><><>><><><><><><><><><><><><><><><

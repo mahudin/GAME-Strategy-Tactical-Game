@@ -9,7 +9,7 @@ import dev.main.tiles.Tile;
 public class Tree extends StaticEntity {
 	
 	public Tree(Handler handler,float x,float y){
-		super(handler,x,y,Tile.TILEWIDTH*3,Tile.TILEHEIGHT*5);
+		super(handler,x,y,Tile.TILEWIDTH*3,Tile.TILEHEIGHT*5,0);
 		
 		bounds.x=width/2;
 		bounds.y=(int) (height/1.2f);

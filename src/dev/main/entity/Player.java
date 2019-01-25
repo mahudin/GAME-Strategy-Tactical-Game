@@ -78,7 +78,7 @@ public class Player extends Creature{
 	}
 	
 	public Player(Handler handler, float x, float y) {
-		super(handler,x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
+		super(handler,x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT,2);
 		this.player_x=x;
 		this.player_y=y;
 		bounds.x=1;
@@ -127,6 +127,7 @@ public class Player extends Creature{
 		//animStand.tick();
 		getInput();
 		move();
+		
 		//handler.getGameCamera().centerOnEntity(this); // centrowanie kamery na graczu
 		//Attack
 		checkAttack();
@@ -175,27 +176,7 @@ public class Player extends Creature{
 		
 		attackTimer=0;
 		
-		collision_and_action(ar);
-	}
-	
-	public void collision_and_action(Rectangle ar){
-		
-		for(Entity e: handler.getWorld().getEntityManager().getEntities()){
-			if(e.equals(this)) continue;
-			System.out.println(e.getX()+" "+e.getY());
-			if(e.getCollisionBounds(0,0).intersects(ar)){
-				ArrayList<Army> all_army_player=new ArrayList<Army>();
-				for(Army a:this.getKnights()) all_army_player.add(a);
-				for(Army a:this.getArchers()) all_army_player.add(a);
-				System.out.println(all_army_player);
-				BattleState bs= new BattleState(handler);
-				bs.setArmyPlayer(all_army_player);
-				State.setState(bs);
-				//e.hurt(1);
-				return;
-			}
-		}
-	
+		//collision_and_action(ar);
 	}
 	
 	public void die(){
@@ -301,6 +282,18 @@ public class Player extends Creature{
 			return animDown.getCurrentFrame();
 			//return animStand.getCurrentFrame();
 		}
+	}
+
+	@Override
+	public void set_activity(int activity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int get_activity() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	

@@ -1,9 +1,10 @@
 package dev.main.entity;
+import dev.interfejsy.aktywnosci.Aktywnosci;
 import dev.main.Handler;
 import dev.main.entity.Entity;
 import dev.main.tiles.Tile;
 
-public abstract class Creature extends Entity{
+public abstract class Creature extends Entity implements Aktywnosci{
 	
 	
 	public static final float DEFAULT_SPEED = 3.0f;
@@ -13,12 +14,13 @@ public abstract class Creature extends Entity{
 	protected float speed;
 	protected float xMove, yMove;
 
-	public Creature(Handler handler,float x, float y, int width, int height) {
-		super(handler,x, y, width, height);
+	public Creature(Handler handler,float x, float y, int width, int height,int activity) {
+		super(handler,x, y, width, height,activity);
 		health = DEFAULT_HEALTH;
 		speed = DEFAULT_SPEED;
 		xMove = 0;
 		yMove = 0;
+		
 	}
 	
 	public void move(){

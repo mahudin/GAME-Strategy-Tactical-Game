@@ -28,7 +28,7 @@ public class Location<T extends Place & Comparable<T> > extends StaticEntity {
 	};
 	
 	public Location(Handler handler,float x,float y,T place, String title){
-		super(handler,x,y,Tile.TILEWIDTH,Tile.TILEHEIGHT);
+		super(handler,x,y,Tile.TILEWIDTH,Tile.TILEHEIGHT,0);
 		this.place= place;
 		this.title=title;
 		bounds.x=width/4;

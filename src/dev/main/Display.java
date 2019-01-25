@@ -42,7 +42,7 @@ public class Display {
 		
 		// okienko bπdü fullscreen
 		
-		//frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		frame.setUndecorated(true);
 		
 		frame.setVisible(true);
